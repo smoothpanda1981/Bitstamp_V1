@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="">
+    <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="improve codes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/yan/wang/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yan/wang/App.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +15,13 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,7 +96,10 @@
       <workItem from="1581496844684" duration="533000" />
       <workItem from="1581497935239" duration="686000" />
       <workItem from="1581498669592" duration="1206000" />
-      <workItem from="1581500587575" duration="501000" />
+      <workItem from="1581500587575" duration="1137000" />
+      <workItem from="1581524476461" duration="1743000" />
+      <workItem from="1581526286809" duration="1760000" />
+      <workItem from="1581528109716" duration="165000" />
     </task>
     <servers />
   </component>
@@ -106,5 +118,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="improve codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve codes" />
   </component>
 </project>

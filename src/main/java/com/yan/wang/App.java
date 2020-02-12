@@ -1,14 +1,12 @@
 package com.yan.wang;
 
+import com.yan.wang.utilities.BitstampAuthUtils;
 import org.apache.commons.codec.binary.Hex;
 
-import javax.crypto.Mac;
-import javax.crypto.spec.SecretKeySpec;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.UUID;
 
 /**
  * Hello world!
@@ -18,45 +16,18 @@ public class App {
     public static void main(String[] args) {
         System.out.println( "Hello World!" );
 
-        String apiKey = String.format("%s %s", "BITSTAMP", "xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA");
-        String apiKeySecret = "";
-        String httpVerb = "POST";
-        String urlHost = "www.bitstamp.net";
-        String urlPath = "/api/v2/user_transactions/";
-        String urlQuery = "";
-        String timestamp = String.valueOf(System.currentTimeMillis());
-        String nonce = UUID.randomUUID().toString();
-        String contentType = "application/x-www-form-urlencoded";
-        String version = "v2";
-        String payloadString = "offset=1;limit=1000";
-        String signature = apiKey +
-                httpVerb +
-                urlHost +
-                urlPath +
-                urlQuery +
-                contentType +
-                nonce +
-                timestamp +
-                version +
-                payloadString;
-
         try {
-            SecretKeySpec secretKey = new SecretKeySpec(apiKeySecret.getBytes(), "HmacSHA256");
-            Mac mac = Mac.getInstance("HmacSHA256");
-            mac.init(secretKey);
-            byte[] rawHmac = mac.doFinal(signature.getBytes());
-            signature = new String(Hex.encodeHex(rawHmac)).toUpperCase();
-
+            BitstampAuthUtils bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/user_transactions/");
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://www.bitstamp.net/api/v2/user_transactions/"))
-                    .POST(HttpRequest.BodyPublishers.ofString(payloadString))
-                    .setHeader("X-Auth", apiKey)
-                    .setHeader("X-Auth-Signature", signature)
-                    .setHeader("X-Auth-Nonce", nonce)
-                    .setHeader("X-Auth-Timestamp", timestamp)
-                    .setHeader("X-Auth-Version", version)
-                    .setHeader("Content-Type", contentType)
+                    .POST(HttpRequest.BodyPublishers.ofString(bitstampAuthUtils.payloadString))
+                    .setHeader("X-Auth", bitstampAuthUtils.apiKey)
+                    .setHeader("X-Auth-Signature", bitstampAuthUtils.signature)
+                    .setHeader("X-Auth-Nonce", bitstampAuthUtils.nonce)
+                    .setHeader("X-Auth-Timestamp", bitstampAuthUtils.timestamp)
+                    .setHeader("X-Auth-Version", bitstampAuthUtils.version)
+                    .setHeader("Content-Type", bitstampAuthUtils.contentType)
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -67,16 +38,43 @@ public class App {
 
             String serverSignature = response.headers().map().get("x-server-auth-signature").get(0);
             String responseContentType = response.headers().map().get("Content-Type").get(0);
-            String stringToSign = nonce + timestamp + responseContentType + response.body();
+            String stringToSign = bitstampAuthUtils.nonce + bitstampAuthUtils.timestamp + responseContentType + response.body();
 
-            mac.init(secretKey);
-            byte[] rawHmacServerCheck = mac.doFinal(stringToSign.getBytes());
+            bitstampAuthUtils.mac.init(bitstampAuthUtils.secretKey);
+            byte[] rawHmacServerCheck = bitstampAuthUtils.mac.doFinal(stringToSign.getBytes());
             String newSignature = new String(Hex.encodeHex(rawHmacServerCheck));
 
             if (!newSignature.equals(serverSignature)) {
                 throw new RuntimeException("Signatures do not match");
             }
 
+            System.out.println(response.body());
+
+
+            bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/balance/");
+            client = HttpClient.newHttpClient();
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://www.bitstamp.net/api/v2/balance/"))
+                    .POST(HttpRequest.BodyPublishers.ofString(bitstampAuthUtils.payloadString))
+                    .setHeader("X-Auth", bitstampAuthUtils.apiKey)
+                    .setHeader("X-Auth-Signature", bitstampAuthUtils.signature)
+                    .setHeader("X-Auth-Nonce", bitstampAuthUtils.nonce)
+                    .setHeader("X-Auth-Timestamp", bitstampAuthUtils.timestamp)
+                    .setHeader("X-Auth-Version", bitstampAuthUtils.version)
+                    .setHeader("Content-Type", bitstampAuthUtils.contentType)
+                    .build();
+
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println(response.body());
+
+            bitstampAuthUtils = new BitstampAuthUtils("GET", "/api/v2/ticker/btcusd/");
+            client = HttpClient.newHttpClient();
+            request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://www.bitstamp.net/api/v2/ticker/btcusd/"))
+                    .GET()
+                    .build();
+
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(response.body());
 
         } catch (Exception e) {
