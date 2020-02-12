@@ -18,8 +18,8 @@ public class App {
     public static void main(String[] args) {
         System.out.println( "Hello World!" );
 
-        String apiKey = String.format("%s %s", "BITSTAMP", "???");
-        String apiKeySecret = "???";
+        String apiKey = String.format("%s %s", "BITSTAMP", "xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA");
+        String apiKeySecret = "";
         String httpVerb = "POST";
         String urlHost = "www.bitstamp.net";
         String urlPath = "/api/v2/user_transactions/";
@@ -28,7 +28,7 @@ public class App {
         String nonce = UUID.randomUUID().toString();
         String contentType = "application/x-www-form-urlencoded";
         String version = "v2";
-        String payloadString = "offset=1";
+        String payloadString = "offset=1;limit=1000";
         String signature = apiKey +
                 httpVerb +
                 urlHost +
