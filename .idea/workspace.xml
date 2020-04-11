@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="improve codes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" afterDir="false" />
+    <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yan/wang/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yan/wang/App.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,27 +38,20 @@
   </component>
   <component name="ProjectId" id="1XhPJ0LIjjU8CsbBqJ3DbCcY8a0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../univocity-trader" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -99,8 +90,22 @@
       <workItem from="1581500587575" duration="1137000" />
       <workItem from="1581524476461" duration="1743000" />
       <workItem from="1581526286809" duration="1760000" />
-      <workItem from="1581528109716" duration="165000" />
+      <workItem from="1581528109716" duration="500000" />
+      <workItem from="1583968696551" duration="629000" />
+      <workItem from="1584262852365" duration="597000" />
+      <workItem from="1585160552269" duration="1209000" />
+      <workItem from="1586283041590" duration="252000" />
+      <workItem from="1586295783663" duration="602000" />
+      <workItem from="1586607856158" duration="72000" />
     </task>
+    <task id="LOCAL-00001" summary="improve codes">
+      <created>1581528329453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581528329453</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,5 +127,23 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improve codes" />
     <option name="LAST_COMMIT_MESSAGE" value="improve codes" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="911" height="262" key="GridCell.Tab.0.bottom" timestamp="1586607909191">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="911" height="262" key="GridCell.Tab.0.bottom/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607909191" />
+    <state width="911" height="262" key="GridCell.Tab.0.center" timestamp="1586607909190">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="911" height="262" key="GridCell.Tab.0.center/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607909190" />
+    <state width="911" height="262" key="GridCell.Tab.0.left" timestamp="1586607909189">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="911" height="262" key="GridCell.Tab.0.left/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607909189" />
+    <state width="911" height="262" key="GridCell.Tab.0.right" timestamp="1586607909191">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="911" height="262" key="GridCell.Tab.0.right/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607909191" />
   </component>
 </project>
