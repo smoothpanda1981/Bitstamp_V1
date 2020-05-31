@@ -31,6 +31,7 @@ public class App {
                     .build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            System.out.println("status code : " + response.statusCode());
 
             if (response.statusCode() != 200) {
                 throw new RuntimeException("Status code not 200");
@@ -50,7 +51,7 @@ public class App {
 
             System.out.println(response.body());
 
-
+            System.out.println("Balance");
             bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/balance/");
             client = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
@@ -67,6 +68,7 @@ public class App {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(response.body());
 
+            System.out.println("BTSUSD");
             bitstampAuthUtils = new BitstampAuthUtils("GET", "/api/v2/ticker/btcusd/");
             client = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
