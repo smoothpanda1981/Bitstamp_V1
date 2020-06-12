@@ -19,15 +19,15 @@ public class AuthenticationV2 {
         public static void main(String[] args) {
 
             System.out.println("User Transactions :");
-            AuthenticationPojo authenticationPojoForUserTransaction = createAuthenticationPojo("", "", "POST", "/api/v2/user_transactions/", "v2");
+            AuthenticationPojo authenticationPojoForUserTransaction = createAuthenticationPojo("xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA", "wKlcAp6EIgold46jIU4gT15X4gFWf6xV", "POST", "/api/v2/user_transactions/", "v2");
             getPOSTApiCallResponse(authenticationPojoForUserTransaction);
 
             System.out.println("User Balance :");
-            AuthenticationPojo authenticationPojoForBalance = createAuthenticationPojo("", "", "POST", "/api/v2/balance/", "v2");
+            AuthenticationPojo authenticationPojoForBalance = createAuthenticationPojo("xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA", "wKlcAp6EIgold46jIU4gT15X4gFWf6xV", "POST", "/api/v2/balance/", "v2");
             getPOSTApiCallResponse(authenticationPojoForBalance);
 
             System.out.println("Bitcoin for USD :");
-            AuthenticationPojo authenticationPojoForBTCUSD = createAuthenticationPojo("", "", "GET", "/api/v2/ticker/btcusd/", "v2");
+            AuthenticationPojo authenticationPojoForBTCUSD = createAuthenticationPojo("xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA", "wKlcAp6EIgold46jIU4gT15X4gFWf6xV", "GET", "/api/v2/ticker/btcusd/", "v2");
             getGETApiCallResponse(authenticationPojoForBTCUSD);
         }
 
