@@ -1,0 +1,40 @@
+Total Deposit USD = 12011.32 USD
+Total Deposit EUR = 4100.00 EUR
+
+Total Withdrawal USD = 5982.28 USD
+Total Withdrawal Fee USD = 16.09 USD
+5966.19 USD
+
+Total Withdrawal EUR = 960.13 EUR
+Total Withdrawal Fee EUR = 1.80 EUR
+958.33 EUR
+-----------------------------------------------------
+12011.32 USD - 5966.19 USD = 6045.13 USD
+4100.00 EUR - 958.33 EUR = 3141.67 EUR
+-----------------------------------------------------
+
+Total Sub Account Transfer USD = 342.19000 USD
+Total Sub Account Transfer USD = 14.15000 EUR
+Weird, currency is not USD or EUR.
+
+
+Total Buy and Sell USD = -3770.32 USD
+Total Buy and Sell Fee USD = 1046.32 USD
+Total Buy and Sell EUR = -3099.59 EUR
+Total Buy and Sell Fee EUR = 15.67 EUR
+
+-3770.32 - 1046.32 = −4816.64 USD
+-3099.59 - 15.67 = −3115.26 EUR
+
+-----------------------------------------------------
+5554.13 USD - 6045.13 USD = -491 USD + 342.19000 USD = −148.81 USD
+0.00 EUR - 3141.67 EUR = -3141.67 EUR + 14.15000 EUR = -3155.82 EUR
+
+-3770.32 - 1046.32 = −4816.64 USD
+-3099.59 - 15.67 = −3115.26 EUR
+
+-4965.45 USD
+-6271.08 EUR
+-----------------------------------------------------
+
+
