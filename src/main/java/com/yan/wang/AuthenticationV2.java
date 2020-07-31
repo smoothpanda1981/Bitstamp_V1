@@ -1,6 +1,9 @@
 package com.yan.wang;
 
+import com.google.gson.Gson;
 import com.yan.wang.dao.AuthenticationPojo;
+import com.yan.wang.dao.UserTransactionJsonPojo;
+import com.yan.wang.dao.UserTransactionPojo;
 import com.yan.wang.utilities.BitstampAuthUtils;
 import org.apache.commons.codec.binary.Hex;
 
@@ -10,6 +13,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -20,15 +25,28 @@ public class AuthenticationV2 {
 
             System.out.println("User Transactions :");
             AuthenticationPojo authenticationPojoForUserTransaction = createAuthenticationPojo("", "", "POST", "/api/v2/user_transactions/", "v2");
-            getPOSTApiCallResponse(authenticationPojoForUserTransaction);
+            String result = getPOSTApiCallResponse(authenticationPojoForUserTransaction);
+            String trimResult = result.substring(1, result.length() - 1);
+            String[] trimResultTab = trimResult.split("},");
+
+            Gson gson = new Gson();
+            List<UserTransactionJsonPojo> userTransactionJsonPojoList = new ArrayList<UserTransactionJsonPojo>();
+            for (int i = 0; i < trimResultTab.length; i++) {
+                if (!trimResultTab[i].endsWith("}")) {
+                    trimResultTab[i] = trimResultTab[i] + "}";
+                }
+                UserTransactionJsonPojo userTransactionJsonPojo = gson.fromJson(trimResultTab[i], UserTransactionJsonPojo.class);
+                userTransactionJsonPojoList.add(userTransactionJsonPojo);
+            }
+            System.out.println(userTransactionJsonPojoList.size());
 
             System.out.println("User Balance :");
             AuthenticationPojo authenticationPojoForBalance = createAuthenticationPojo("", "", "POST", "/api/v2/balance/", "v2");
-            getPOSTApiCallResponse(authenticationPojoForBalance);
+            result = getPOSTApiCallResponse(authenticationPojoForBalance);
 
             System.out.println("Bitcoin for USD :");
             AuthenticationPojo authenticationPojoForBTCUSD = createAuthenticationPojo("", "", "GET", "/api/v2/ticker/btcusd/", "v2");
-            getGETApiCallResponse(authenticationPojoForBTCUSD);
+            result = getGETApiCallResponse(authenticationPojoForBTCUSD);
         }
 
         public static AuthenticationPojo createAuthenticationPojo(String apiKey, String apiKeySecret, String httpVerb, String url, String version) {
@@ -49,7 +67,8 @@ public class AuthenticationV2 {
             return authenticationPojo;
         }
 
-        public static void getPOSTApiCallResponse(AuthenticationPojo authenticationPojo) {
+        public static String getPOSTApiCallResponse(AuthenticationPojo authenticationPojo) {
+            String result = "";
             try {
                 SecretKeySpec secretKey = new SecretKeySpec(authenticationPojo.getApiKeySecret().getBytes(), "HmacSHA256");
                 Mac mac = Mac.getInstance("HmacSHA256");
@@ -88,13 +107,17 @@ public class AuthenticationV2 {
                 }
 
                 System.out.println(response.body());
+                result = response.body();
 
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
+
+            return result;
         }
 
-    public static void getGETApiCallResponse(AuthenticationPojo authenticationPojo) {
+    public static String getGETApiCallResponse(AuthenticationPojo authenticationPojo) {
+            String result = "";
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
@@ -109,9 +132,12 @@ public class AuthenticationV2 {
             }
 
             System.out.println(response.body());
+            result = response.body();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+        return result;
     }
+
 }
