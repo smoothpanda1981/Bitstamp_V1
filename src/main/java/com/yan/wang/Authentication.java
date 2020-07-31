@@ -15,8 +15,8 @@ import java.util.UUID;
  */
 public class Authentication {
         public static void main(String[] args) {
-            String apiKey = String.format("%s %s", "BITSTAMP", "xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA");
-            String apiKeySecret = "wKlcAp6EIgold46jIU4gT15X4gFWf6xV";
+            String apiKey = String.format("%s %s", "BITSTAMP", "");
+            String apiKeySecret = "";
             String httpVerb = "POST";
             String urlHost = "www.bitstamp.net";
             String urlPath = "/api/v2/user_transactions/";

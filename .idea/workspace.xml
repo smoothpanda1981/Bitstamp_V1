@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -27,10 +30,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/text1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/AuthenticationV3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/AuthenticationV3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/yan/wang/AuthenticationV3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/yan/wang/AuthenticationV3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +58,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="#JAVA_HOME" />
@@ -152,6 +159,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -177,6 +185,9 @@
       <workItem from="1586295783663" duration="602000" />
       <workItem from="1586607856158" duration="72000" />
       <workItem from="1590931444300" duration="5408000" />
+      <workItem from="1593783965466" duration="53000" />
+      <workItem from="1593784090084" duration="99000" />
+      <workItem from="1596232941166" duration="124000" />
     </task>
     <task id="LOCAL-00001" summary="improve codes">
       <created>1581528329453</created>
@@ -213,11 +224,18 @@
       <option name="project" value="LOCAL" />
       <updated>1591946328706</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Run V3">
+      <created>1591949867976</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1591949867976</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -246,7 +264,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="improve codes" />
     <MESSAGE value="V3" />
-    <option name="LAST_COMMIT_MESSAGE" value="V3" />
+    <MESSAGE value="Run V3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Run V3" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2499" y="201" width="800" height="736" key="#Intentions" timestamp="1591946464144">
@@ -257,31 +276,35 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2712" y="227" width="374" height="633" key="#com.intellij.ide.util.MemberChooser/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591945532629" />
-    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2" timestamp="1591946328592">
+    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2" timestamp="1591949867850">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2372" y="69" width="1046" height="940" key="CommitChangelistDialog2/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607973511" />
-    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591946328592" />
-    <state width="1826" height="232" key="GridCell.Tab.0.bottom" timestamp="1591948968237">
+    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949867850" />
+    <state x="2687" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593784185351">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2687" y="298" width="424" height="491" key="FileChooserDialogImpl/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1593784185351" />
+    <state width="1826" height="232" key="GridCell.Tab.0.bottom" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1823" height="262" key="GridCell.Tab.0.bottom/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
-    <state width="1826" height="232" key="GridCell.Tab.0.bottom/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591948968237" />
-    <state width="1826" height="232" key="GridCell.Tab.0.center" timestamp="1591948968237">
+    <state width="1826" height="232" key="GridCell.Tab.0.bottom/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
+    <state width="1826" height="232" key="GridCell.Tab.0.center" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1823" height="262" key="GridCell.Tab.0.center/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
-    <state width="1826" height="232" key="GridCell.Tab.0.center/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591948968237" />
-    <state width="1826" height="232" key="GridCell.Tab.0.left" timestamp="1591948968237">
+    <state width="1826" height="232" key="GridCell.Tab.0.center/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
+    <state width="1826" height="232" key="GridCell.Tab.0.left" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1823" height="262" key="GridCell.Tab.0.left/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
-    <state width="1826" height="232" key="GridCell.Tab.0.left/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591948968237" />
-    <state width="1826" height="232" key="GridCell.Tab.0.right" timestamp="1591948968237">
+    <state width="1826" height="232" key="GridCell.Tab.0.left/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
+    <state width="1826" height="232" key="GridCell.Tab.0.right" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1823" height="262" key="GridCell.Tab.0.right/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
-    <state width="1826" height="232" key="GridCell.Tab.0.right/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591948968237" />
+    <state width="1826" height="232" key="GridCell.Tab.0.right/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
     <state x="2771" y="455" width="256" height="176" key="VCS.EditChangelistDialog" timestamp="1591938730787">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
