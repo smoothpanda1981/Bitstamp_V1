@@ -31,7 +31,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f728d596-7143-4275-9eec-452ffb60e6f4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/AuthenticationV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/AuthenticationV2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/yan/wang/utilities/BitstampAuthUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,7 +187,7 @@
       <workItem from="1590931444300" duration="5408000" />
       <workItem from="1593783965466" duration="53000" />
       <workItem from="1593784090084" duration="99000" />
-      <workItem from="1596232941166" duration="124000" />
+      <workItem from="1596232941166" duration="240000" />
     </task>
     <task id="LOCAL-00001" summary="improve codes">
       <created>1581528329453</created>
@@ -231,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591949867976</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="minor change">
+      <created>1596233106052</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1596233106052</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +272,8 @@
     <MESSAGE value="improve codes" />
     <MESSAGE value="V3" />
     <MESSAGE value="Run V3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Run V3" />
+    <MESSAGE value="minor change" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor change" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2499" y="201" width="800" height="736" key="#Intentions" timestamp="1591946464144">
@@ -276,11 +284,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2712" y="227" width="374" height="633" key="#com.intellij.ide.util.MemberChooser/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591945532629" />
-    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2" timestamp="1591949867850">
+    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2" timestamp="1596233105605">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2372" y="69" width="1046" height="940" key="CommitChangelistDialog2/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607973511" />
-    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949867850" />
+    <state x="2372" y="69" width="912" height="912" key="CommitChangelistDialog2/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596233105605" />
     <state x="2687" y="298" width="424" height="491" key="FileChooserDialogImpl" timestamp="1593784185351">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -288,31 +295,27 @@
     <state width="1826" height="232" key="GridCell.Tab.0.bottom" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1823" height="262" key="GridCell.Tab.0.bottom/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
     <state width="1826" height="232" key="GridCell.Tab.0.bottom/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
     <state width="1826" height="232" key="GridCell.Tab.0.center" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1823" height="262" key="GridCell.Tab.0.center/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
     <state width="1826" height="232" key="GridCell.Tab.0.center/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
     <state width="1826" height="232" key="GridCell.Tab.0.left" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1823" height="262" key="GridCell.Tab.0.left/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
     <state width="1826" height="232" key="GridCell.Tab.0.left/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
     <state width="1826" height="232" key="GridCell.Tab.0.right" timestamp="1591949878799">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1823" height="262" key="GridCell.Tab.0.right/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607989107" />
     <state width="1826" height="232" key="GridCell.Tab.0.right/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591949878799" />
     <state x="2771" y="455" width="256" height="176" key="VCS.EditChangelistDialog" timestamp="1591938730787">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2771" y="455" width="256" height="176" key="VCS.EditChangelistDialog/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1591938730787" />
-    <state x="2395" y="212" width="1000" height="654" key="Vcs.Push.Dialog.v2" timestamp="1586607977596">
+    <state x="2499" y="276" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596233110053">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2395" y="212" width="1000" height="654" key="Vcs.Push.Dialog.v2/41.27.1879.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1586607977596" />
+    <state x="2499" y="276" width="800" height="535" key="Vcs.Push.Dialog.v2/48.27.1872.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1596233110053" />
     <state x="2567" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1591947453114">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

@@ -28,8 +28,8 @@ public class BitstampAuthUtils {
 
 
     public BitstampAuthUtils(String httpProtocol, String urlLink) throws NoSuchAlgorithmException, InvalidKeyException {
-        apiKey = String.format("%s %s", "BITSTAMP", "");
-        apiKeySecret = " ";
+        apiKey = String.format("%s %s", "BITSTAMP", "xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA");
+        apiKeySecret = "wKlcAp6EIgold46jIU4gT15X4gFWf6xV";
         httpVerb = httpProtocol;
         urlHost = "www.bitstamp.net";
         urlPath = urlLink;
