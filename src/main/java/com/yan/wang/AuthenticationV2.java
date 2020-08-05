@@ -9,12 +9,15 @@ import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.UUID;
 
 /**
@@ -23,30 +26,39 @@ import java.util.UUID;
 public class AuthenticationV2 {
         public static void main(String[] args) {
 
-            System.out.println("User Transactions :");
-            AuthenticationPojo authenticationPojoForUserTransaction = createAuthenticationPojo("", "", "POST", "/api/v2/user_transactions/", "v2");
-            String result = getPOSTApiCallResponse(authenticationPojoForUserTransaction);
-            String trimResult = result.substring(1, result.length() - 1);
-            String[] trimResultTab = trimResult.split("},");
+            final Properties props = new Properties();
+            try {
+                props.load(new FileInputStream("/tmp/bitstamp/bitstampapi.properties"));
 
-            Gson gson = new Gson();
-            List<UserTransactionJsonPojo> userTransactionJsonPojoList = new ArrayList<UserTransactionJsonPojo>();
-            for (int i = 0; i < trimResultTab.length; i++) {
-                if (!trimResultTab[i].endsWith("}")) {
-                    trimResultTab[i] = trimResultTab[i] + "}";
+                System.out.println(props.getProperty("api.key") + "  " + props.getProperty("api.secret"));
+
+                System.out.println("User Transactions :");
+                AuthenticationPojo authenticationPojoForUserTransaction = createAuthenticationPojo(props.getProperty("api.key"), props.getProperty("api.secret"), "POST", "/api/v2/user_transactions/", "v2");
+                String result = getPOSTApiCallResponse(authenticationPojoForUserTransaction);
+                String trimResult = result.substring(1, result.length() - 1);
+                String[] trimResultTab = trimResult.split("},");
+
+                Gson gson = new Gson();
+                List<UserTransactionJsonPojo> userTransactionJsonPojoList = new ArrayList<UserTransactionJsonPojo>();
+                for (int i = 0; i < trimResultTab.length; i++) {
+                    if (!trimResultTab[i].endsWith("}")) {
+                        trimResultTab[i] = trimResultTab[i] + "}";
+                    }
+                    UserTransactionJsonPojo userTransactionJsonPojo = gson.fromJson(trimResultTab[i], UserTransactionJsonPojo.class);
+                    userTransactionJsonPojoList.add(userTransactionJsonPojo);
                 }
-                UserTransactionJsonPojo userTransactionJsonPojo = gson.fromJson(trimResultTab[i], UserTransactionJsonPojo.class);
-                userTransactionJsonPojoList.add(userTransactionJsonPojo);
+                System.out.println(userTransactionJsonPojoList.size());
+
+                System.out.println("User Balance :");
+                AuthenticationPojo authenticationPojoForBalance = createAuthenticationPojo(props.getProperty("api.key"), props.getProperty("api.secret"), "POST", "/api/v2/balance/", "v2");
+                result = getPOSTApiCallResponse(authenticationPojoForBalance);
+
+                System.out.println("Bitcoin for USD :");
+                AuthenticationPojo authenticationPojoForBTCUSD = createAuthenticationPojo(props.getProperty("api.key"), props.getProperty("api.secret"), "GET", "/api/v2/ticker/btcusd/", "v2");
+                result = getGETApiCallResponse(authenticationPojoForBTCUSD);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            System.out.println(userTransactionJsonPojoList.size());
-
-            System.out.println("User Balance :");
-            AuthenticationPojo authenticationPojoForBalance = createAuthenticationPojo("", "", "POST", "/api/v2/balance/", "v2");
-            result = getPOSTApiCallResponse(authenticationPojoForBalance);
-
-            System.out.println("Bitcoin for USD :");
-            AuthenticationPojo authenticationPojoForBTCUSD = createAuthenticationPojo("", "", "GET", "/api/v2/ticker/btcusd/", "v2");
-            result = getGETApiCallResponse(authenticationPojoForBTCUSD);
         }
 
         public static AuthenticationPojo createAuthenticationPojo(String apiKey, String apiKeySecret, String httpVerb, String url, String version) {
