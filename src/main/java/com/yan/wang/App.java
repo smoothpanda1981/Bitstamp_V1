@@ -3,21 +3,27 @@ package com.yan.wang;
 import com.yan.wang.utilities.BitstampAuthUtils;
 import org.apache.commons.codec.binary.Hex;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Properties;
 
 /**
  * Hello world!
  *
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println( "Hello World!" );
+        final Properties props = new Properties();
 
         try {
-            BitstampAuthUtils bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/user_transactions/");
+            props.load(new FileInputStream("/tmp/bitstamp/bitstampapi.properties"));
+
+            BitstampAuthUtils bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/user_transactions/", props.getProperty("api.key"), props.getProperty("api.secret"));
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://www.bitstamp.net/api/v2/user_transactions/"))
@@ -52,7 +58,7 @@ public class App {
             System.out.println(response.body());
 
             System.out.println("Balance");
-            bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/balance/");
+            bitstampAuthUtils = new BitstampAuthUtils("POST", "/api/v2/balance/", props.getProperty("api.key"), props.getProperty("api.secret"));
             client = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
                     .uri(URI.create("https://www.bitstamp.net/api/v2/balance/"))
@@ -69,7 +75,7 @@ public class App {
             System.out.println(response.body());
 
             System.out.println("BTSUSD");
-            bitstampAuthUtils = new BitstampAuthUtils("GET", "/api/v2/ticker/btcusd/");
+            bitstampAuthUtils = new BitstampAuthUtils("GET", "/api/v2/ticker/btcusd/", props.getProperty("api.key"), props.getProperty("api.secret"));
             client = HttpClient.newHttpClient();
             request = HttpRequest.newBuilder()
                     .uri(URI.create("https://www.bitstamp.net/api/v2/ticker/btcusd/"))

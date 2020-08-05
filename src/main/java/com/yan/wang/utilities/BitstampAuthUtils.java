@@ -27,9 +27,9 @@ public class BitstampAuthUtils {
     public static byte[] rawHmac;
 
 
-    public BitstampAuthUtils(String httpProtocol, String urlLink) throws NoSuchAlgorithmException, InvalidKeyException {
-        apiKey = String.format("%s %s", "BITSTAMP", "xHLaynEDuWW5s0zzg4sKr5Yuju8h9PEA");
-        apiKeySecret = "wKlcAp6EIgold46jIU4gT15X4gFWf6xV";
+    public BitstampAuthUtils(String httpProtocol, String urlLink, String apiKey, String apiSecret) throws NoSuchAlgorithmException, InvalidKeyException {
+        apiKey = String.format("%s %s", "BITSTAMP", apiKey);
+        apiKeySecret = apiSecret;
         httpVerb = httpProtocol;
         urlHost = "www.bitstamp.net";
         urlPath = urlLink;

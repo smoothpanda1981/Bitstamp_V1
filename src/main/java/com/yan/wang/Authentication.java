@@ -4,10 +4,14 @@ import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Properties;
 import java.util.UUID;
 
 /**
@@ -15,29 +19,33 @@ import java.util.UUID;
  */
 public class Authentication {
         public static void main(String[] args) {
-            String apiKey = String.format("%s %s", "BITSTAMP", "");
-            String apiKeySecret = "";
-            String httpVerb = "POST";
-            String urlHost = "www.bitstamp.net";
-            String urlPath = "/api/v2/user_transactions/";
-            String urlQuery = "";
-            String timestamp = String.valueOf(System.currentTimeMillis());
-            String nonce = UUID.randomUUID().toString();
-            String contentType = "application/x-www-form-urlencoded";
-            String version = "v2";
-            String payloadString = "offset=1";
-            String signature = apiKey +
-                    httpVerb +
-                    urlHost +
-                    urlPath +
-                    urlQuery +
-                    contentType +
-                    nonce +
-                    timestamp +
-                    version +
-                    payloadString;
+            final Properties props = new Properties();
 
             try {
+                props.load(new FileInputStream("/tmp/bitstamp/bitstampapi.properties"));
+
+                String apiKey = String.format("%s %s", "BITSTAMP", props.getProperty("api.key"));
+                String apiKeySecret = props.getProperty("api.secret");
+                String httpVerb = "POST";
+                String urlHost = "www.bitstamp.net";
+                String urlPath = "/api/v2/user_transactions/";
+                String urlQuery = "";
+                String timestamp = String.valueOf(System.currentTimeMillis());
+                String nonce = UUID.randomUUID().toString();
+                String contentType = "application/x-www-form-urlencoded";
+                String version = "v2";
+                String payloadString = "offset=1";
+                String signature = apiKey +
+                        httpVerb +
+                        urlHost +
+                        urlPath +
+                        urlQuery +
+                        contentType +
+                        nonce +
+                        timestamp +
+                        version +
+                        payloadString;
+
                 SecretKeySpec secretKey = new SecretKeySpec(apiKeySecret.getBytes(), "HmacSHA256");
                 Mac mac = Mac.getInstance("HmacSHA256");
                 mac.init(secretKey);
